@@ -1,6 +1,7 @@
 package com.mvvm.retrofit.repository
 
 import android.content.Context
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.mvvm.retrofit.api.IQuoteService
@@ -29,6 +30,7 @@ class QuoteRepository(
             }
         }else{
             val quotes =  quoteDatabase.quoteDao().getQuotes()
+            Toast.makeText(applicationContext, "quotes - " + quotes.size.toString(), Toast.LENGTH_SHORT).show()
             val quoteList = QuotList(1,1,1,quotes,1,1)
             qoutesLiveData.postValue(quoteList)
         }

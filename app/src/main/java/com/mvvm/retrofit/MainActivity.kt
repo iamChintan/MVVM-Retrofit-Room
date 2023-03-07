@@ -26,8 +26,7 @@ class MainActivity : AppCompatActivity() {
         mainViewModel = ViewModelProvider(this, MainViewModelFactory(repository)).get(MainViewModel::class.java)
         
         mainViewModel.quote.observe(this, Observer {
-            Log.d(TAG, "onCreate: " + it.results.toString())
-            Toast.makeText(this, it.results.size.toString(),Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@MainActivity, it.results.size.toString(),Toast.LENGTH_SHORT).show()
         })
     }
 }
