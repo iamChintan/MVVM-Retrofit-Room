@@ -12,12 +12,12 @@ class QuoteApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        initialize();
+        initialize()
     }
 
     private fun initialize() {
         val quoteService = RetrofitHelper.getInstance().create(IQuoteService::class.java)
         val database = QuoteDatabase.getDatabase(applicationContext)
-        val quoteRepository = QuoteRepository(quoteService,database, applicationContext)
+        quoteRepository = QuoteRepository(quoteService,database, applicationContext)
     }
 }
