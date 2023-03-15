@@ -7,18 +7,19 @@ import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.mvvm.retrofit.R
+import com.mvvm.retrofit.models.QuotList
 import com.mvvm.retrofit.models.Result
 
-class ProgrammingAdaptor : ListAdapter<Result, ProgrammingAdaptor.ProgrammingViewHolder>(DiffUtil()){
+class ProgrammingAdaptor : ListAdapter<QuotList, ProgrammingAdaptor.ProgrammingViewHolder>(DiffUtil()){
 
     class ProgrammingViewHolder (view : View): RecyclerView.ViewHolder(view){
 
         private val author = view.findViewById<TextView>(R.id.author)
         private val content  = view.findViewById<TextView>(R.id.content)
 
-        fun bind (item: Result){
-            author.text = item.author
-            content.text = item.content
+        fun bind (item: QuotList){
+            author.text = item.results[adapterPosition].author
+            content.text = item.results[adapterPosition].content
         }
 
     }
@@ -33,14 +34,13 @@ class ProgrammingAdaptor : ListAdapter<Result, ProgrammingAdaptor.ProgrammingVie
         holder.bind(item)
     }
 
-    class DiffUtil : androidx.recyclerview.widget.DiffUtil.ItemCallback<Result>(){
-        override fun areItemsTheSame(oldItem: Result, newItem: Result): Boolean {
-            return  oldItem._id == newItem._id
-        }
+    class DiffUtil : androidx.recyclerview.widget.DiffUtil.ItemCallback<QuotList>(){
+        override fun areItemsTheSame(oldItem: QuotList, newItem: QuotList): Boolean {
+            return  oldItem.results == newItem.results        }
 
         override fun areContentsTheSame(
-            oldItem: Result,
-            newItem: Result
+            oldItem: QuotList,
+            newItem: QuotList
         ): Boolean {
             return  oldItem == newItem
         }
