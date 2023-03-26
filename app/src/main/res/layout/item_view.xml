@@ -12,6 +12,7 @@
         android:id="@+id/author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="author"
         android:gravity="center"
         android:textSize="25dp" />
 
@@ -21,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"
+        android:text="content"
         android:gravity="center|left"
         android:textSize="15dp" />
 
