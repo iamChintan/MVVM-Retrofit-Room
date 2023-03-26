@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.mvvm.retrofit.R
 import com.mvvm.retrofit.models.QuotList
-import com.mvvm.retrofit.models.Result
 
 class ProgrammingAdaptor : ListAdapter<QuotList, ProgrammingAdaptor.ProgrammingViewHolder>(DiffUtil()){
 
@@ -24,8 +23,11 @@ class ProgrammingAdaptor : ListAdapter<QuotList, ProgrammingAdaptor.ProgrammingV
 
     }
 
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProgrammingViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_view, parent, false)
+
         return ProgrammingViewHolder(view)
     }
 
